@@ -1,15 +1,26 @@
-export function Transition__in(delay){
+// Transition out then in
+export default function Transition__outIn(time){
     let root = document.getElementById('root');
     root.style.animation = ''
     setTimeout(() => {
-        root.style.animation = `fadeIn ${delay}ms ease-in-out forwards`
+        root.style.animation = `fadeOutIn ${time}ms ease-in-out forwards`
     }, 0)
 }
 
-export function Transition__out(delay){
+// Only transition in
+export function Transition__in(time){
     let root = document.getElementById('root');
     root.style.animation = ''
     setTimeout(() => {
-        root.style.animation = `fadeIn ${delay}ms ease-in-out reverse forwards`
+        root.style.animation = `fadeIn ${time}ms ease-in-out forwards`
+    }, 0)
+}
+
+// only transition out
+export function Transition__out(time){
+    let root = document.getElementById('root');
+    root.style.animation = ''
+    setTimeout(() => {
+        root.style.animation = `fadeIn ${time}ms ease-in-out reverse forwards`
     }, 0)
 }

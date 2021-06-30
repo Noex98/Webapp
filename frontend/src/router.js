@@ -2,47 +2,45 @@ import Home from './views/Home.js'
 import About from './views/About.js'
 import Gallery from './views/Gallery.js'
 import Err404 from './views/Err404.js'
-import {Transition__in, Transition__out} from './utils/Transition.js'
+import Transition__outIn from './utils/Transition.js'
 
 const routes = [
     {
         hash: '/',
-        view: Home()
+        view: Home
     },
     {
         hash: '/about',
-        view: About()
+        view: About
     },
     {
         hash: '/gallery',
-        view: Gallery()
+        view: Gallery
     }
 ]
 
 let root = document.getElementById('root')
-function render(hash){
+function render(){
 
-    let target = routes.find(element => '#' + element.hash === hash);
+    let target = routes.find(element => '#' + element.hash === window.location.hash);
     if (location.hash){
-        root.innerHTML = target !== undefined ? target.view : Err404()
+        root.innerHTML = target !== undefined ? target.view() : Err404()
     } else {
         root.innerHTML = Home();
     }
 }
 
-let transitionDelay = 300;
 
 // First render
-addEventListener('load', () => render(window.location.hash))
+addEventListener('load', () => render())
+
+let transitionTime = 500; //in ms
 
 // When navigating site
 addEventListener('hashchange', () => {
-    // Transition out
-    Transition__out(transitionDelay)
-    // Wait for animation to finish
+    Transition__outIn(transitionTime)
     setTimeout(() => {
-        render(window.location.hash)
-        Transition__in(transitionDelay)
-    },transitionDelay)
+        render()
+    },transitionTime / 2)
     
 })

@@ -47,6 +47,42 @@ a {
   }
 }
 
+@-webkit-keyframes fadeOutIn {
+  0% {
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  50% {
+    opacity: 0;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
+@keyframes fadeOutIn {
+  0% {
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  50% {
+    opacity: 0;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
