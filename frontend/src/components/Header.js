@@ -5,7 +5,7 @@ export default function Header(){
     return (
         `<header>
             ${Link('/', `
-                <img class="logo"/ src="" alt="logo">
+                <img class="logo"/ src="./media/images/logo.png" alt="logo">
             `)}
             
             ${Nav()}
