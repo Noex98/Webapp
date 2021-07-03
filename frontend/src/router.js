@@ -6,15 +6,15 @@ import Transition__outIn from './utils/Transition.js'
 
 const routes = [
     {
-        hash: '/',
+        path: '/',
         view: Home
     },
     {
-        hash: '/about',
+        path: '/about',
         view: About
     },
     {
-        hash: '/gallery',
+        path: '/gallery',
         view: Gallery
     }
 ]
@@ -22,12 +22,8 @@ const routes = [
 let root = document.getElementById('root')
 function render(){
 
-    let target = routes.find(element => '#' + element.hash === window.location.hash);
-    if (location.hash){
-        root.innerHTML = target !== undefined ? target.view() : Err404()
-    } else {
-        root.innerHTML = Home();
-    }
+    let target = routes.find(element => element.path === location.pathname);
+    root.innerHTML = target !== undefined ? target.view() : Err404()
 }
 
 
@@ -36,11 +32,13 @@ addEventListener('load', () => render())
 
 let transitionTime = 500; //in ms
 
+addEventListener()
+
+
 // When navigating site
-addEventListener('hashchange', () => {
+addEventListener('navigate', () => {
     Transition__outIn(transitionTime)
-    setTimeout(() => {
+    setTimeout(() => {  
         render()
     },transitionTime / 2)
-    
 })
