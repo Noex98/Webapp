@@ -6,15 +6,15 @@ import Transition__outIn from './utils/Transition.js'
 
 const routes = [
     {
-        hash: '/',
+        path: '/',
         view: Home
     },
     {
-        hash: '/about',
+        path: '/about',
         view: About
     },
     {
-        hash: '/gallery',
+        path: '/gallery',
         view: Gallery
     }
 ]
@@ -38,11 +38,13 @@ addEventListener('load', () => render())
 
 let transitionTime = 500; //in ms
 
+addEventListener()
+
+
 // When navigating site
-addEventListener('hashchange', () => {
+addEventListener('navigate', () => {
     Transition__outIn(transitionTime)
-    setTimeout(() => {
+    setTimeout(() => {  
         render()
     },transitionTime / 2)
-    
 })
