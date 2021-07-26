@@ -38,8 +38,6 @@ addEventListener('load', () => render())
 
 let transitionTime = 500; //in ms
 
-addEventListener()
-
 
 // When navigating site
 addEventListener('navigate', () => {
