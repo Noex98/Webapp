@@ -25,8 +25,10 @@ function render(){
     let target = routes.find(element => '#' + element.hash === window.location.hash);
     if (location.hash){
         root.innerHTML = target !== undefined ? target.view() : Err404()
-    } else {
+    } else if (location.pathname === '/'){
         root.innerHTML = Home();
+    } else {
+        root.innerHTML = Err404();
     }
 }
 
