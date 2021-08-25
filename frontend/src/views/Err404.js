@@ -1,10 +1,8 @@
 import Header from '../components/Header.js'
 
 export default function Err404(){
-    return (
-        `
+    return (/*html*/ `
             ${Header()}
-            <h1>404</h1>
-        `
-    )
+            <h1>404 component</h1>
+    `)
 }

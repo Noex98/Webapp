@@ -1,10 +1,8 @@
 import Header from '../components/Header.js'
 
 export default function About(){
-    return (
-        `
+    return (/*html*/ `
             ${Header()}
-            <h1>Gallery</h1>
-        `
-    )
+            <h1>Gallery component</h1>
+    `)
 }

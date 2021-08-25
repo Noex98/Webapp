@@ -1,8 +1,8 @@
 import Link from '../utils/Link.js'
 
 export default function Nav(){
-    return (
-        `<nav>
+    return ( /*html*/ `
+    <nav>
             <ul>
                 <li>
                     ${Link('/', 'Home')}
@@ -14,6 +14,6 @@ export default function Nav(){
                     ${Link('/gallery', 'Gallery')}
                 </li>
             </ul>
-        </nav>`
-    )
+        </nav>
+    `)
 }
