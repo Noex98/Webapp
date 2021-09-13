@@ -7,43 +7,33 @@ import Transition__outIn from './utils/Transition.js'
 
 const routes = [
     {
-        hash: '/',
+        path: '/',
         view: Home
     },
     {
-        hash: '/about',
+        path: '/about',
         view: About
     },
     {
-        hash: '/gallery',
+        path: '/gallery',
         view: Gallery
     }
 ]
 
 let root = document.getElementById('root')
-function render(){
 
-    let target = routes.find(element => '#' + element.hash === window.location.hash);
-    if (location.hash){
-        root.innerHTML = target !== undefined ? target.view() : Err404()
-    } else if (location.pathname === '/'){
-        root.innerHTML = Home();
-    } else {
-        root.innerHTML = Err404();
-    }
-    console.log(window.location)
+// Links
+window.navigateTo = (path) => {
+    let target = routes.find(element => element.path === path);
+    root.innerHTML = target !== undefined ? target.view() : Err404()
+    window.history.pushState(null, null, path)
+}
+
+// History api
+window.onpopstate = () => {
+    let target = routes.find(element => element.path === window.location.pathname);
+    root.innerHTML = target !== undefined ? target.view() : Err404()
 }
 
 // First render
-addEventListener('load', () => render())
-
-
-let transitionTime = 500; //in ms
-
-// When navigating site
-addEventListener('hashchange', () => {
-    Transition__outIn(transitionTime)
-    setTimeout(() => {  
-        render()
-    },transitionTime / 2)
-})
+window.onload = () => navigateTo(window.location.pathname)
