@@ -4,6 +4,7 @@ import Gallery from './views/Gallery.js'
 import Err404 from './views/Err404.js'
 import Transition__outIn from './utils/Transition.js'
 
+
 const routes = [
     {
         hash: '/',
@@ -30,14 +31,14 @@ function render(){
     } else {
         root.innerHTML = Err404();
     }
+    console.log(window.location)
 }
-
 
 // First render
 addEventListener('load', () => render())
 
-let transitionTime = 500; //in ms
 
+let transitionTime = 500; //in ms
 
 // When navigating site
 addEventListener('hashchange', () => {
