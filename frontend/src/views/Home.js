@@ -5,7 +5,7 @@ import { user } from '../Store.js'
 export default function Home(){
 
     let userData = user.data()
-    console.log(userData)
+    userData == undefined ? console.log(1) : console.log(2)
 
     return (/*html*/ `
             ${Header()}

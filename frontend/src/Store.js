@@ -39,7 +39,7 @@ export let plans = {
                         plans.loaded = true
                         navigateTo()
                     }
-            })
+                })
         }
     }
 }
@@ -52,16 +52,16 @@ export let prevWorkouts = {
             return prevWorkouts.dataStore
         } else {
             fetch('')
-            .then(res => res.json())
-            .then(data => {
-                if (data.auth === false){
-                    Redirect('/login')
-                } else {
-                    prevWorkouts.dataStore = data 
-                    prevWorkouts.loaded = true
-                    navigateTo()
-                }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.auth === false){
+                        Redirect('/login')
+                    } else {
+                        prevWorkouts.dataStore = data 
+                        prevWorkouts.loaded = true
+                        navigateTo()
+                    }
+                })
         }
     }
 }
