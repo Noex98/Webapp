@@ -1,9 +1,11 @@
-import Nav from '../components/Nav.js'
+import Link from "../utils/Link.js"
 
 export default function Header(){
     return (/*html*/`
         <header>
-            ${Nav()}
+            ${Link('/', /*html*/ `
+                <h1>LIFTR</h1>
+            `)}
         </header>
     `)
 }

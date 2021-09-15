@@ -1,10 +1,10 @@
 import Header from "../components/Header.js"
 import Nav from "../components/Nav.js"
 
-export default function Stats(){
+export default function Plans(){
     return (/*html*/ `
         ${Header()}
-            Stats component
+            Plans component
         ${Nav()}
     `)
 }

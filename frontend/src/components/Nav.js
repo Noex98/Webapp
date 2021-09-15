@@ -5,13 +5,13 @@ export default function Nav(){
         <nav>
             <ul>
                 <li>
-                    ${Link('/', 'Home')}
+                    ${Link('/plans', /*html*/ 'Plans icon')}
+                </li>
+                <li id="nav-li-center">
+                    ${Link('/startWorkout', /*html*/ 'Start icon')}
                 </li>
                 <li>
-                    ${Link('/stats', 'Stats')}
-                </li>
-                <li>
-                    ${Link('/settings', 'Settings')}
+                    ${Link('/stats', /*html*/ 'Stats icon')}
                 </li>
             </ul>
         </nav>
