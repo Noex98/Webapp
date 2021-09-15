@@ -1,8 +1,15 @@
-import Header from '../components/Header.js'
+import Link from "../utils/Link.js"
+import Redirect from '../utils/Redirect.js'
+
 
 export default function Err404(){
+
+    Redirect('/')
+
+
     return (/*html*/ `
-            ${Header()}
-            <h1>404 component</h1>
+        <h1>404 component</h1>
+        ${Link('/', 'Back to home')}
     `)
+
 }

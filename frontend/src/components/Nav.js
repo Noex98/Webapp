@@ -2,16 +2,16 @@ import Link from '../utils/Link.js'
 
 export default function Nav(){
     return ( /*html*/ `
-    <nav>
+        <nav>
             <ul>
                 <li>
                     ${Link('/', 'Home')}
                 </li>
                 <li>
-                    ${Link('/about', 'About')}
+                    ${Link('/stats', 'Stats')}
                 </li>
                 <li>
-                    ${Link('/gallery', 'Gallery')}
+                    ${Link('/settings', 'Settings')}
                 </li>
             </ul>
         </nav>

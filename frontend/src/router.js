@@ -1,39 +1,49 @@
-import Home from './views/Home.js'
-import About from './views/About.js'
-import Gallery from './views/Gallery.js'
+// Views
 import Err404 from './views/Err404.js'
-import Transition__outIn from './utils/Transition.js'
-
+import Home from './views/Home.js'
+import Login from './views/Login.js'
+import NewUser from './views/NewUser.js'
+import Settings from './views/Settings.js'
+import Stats from './views/Stats.js'
+import StartWorkout from './views/StartWorkout.js'
 
 const routes = [
     {
         path: '/',
         view: Home
-    },
-    {
-        path: '/about',
-        view: About
-    },
-    {
-        path: '/gallery',
-        view: Gallery
+    }, {
+        path: '/login',
+        view: Login
+    }, {
+        path: '/new-user',
+        view: NewUser
+    }, {
+        path: '/settings',
+        view: Settings
+    }, {
+        path: '/stats',
+        view: Stats
+    }, {
+        path: '/StartWorkout',
+        view: StartWorkout
     }
 ]
 
 let root = document.getElementById('root')
 
-// Links
-window.navigateTo = (path) => {
-    let target = routes.find(element => element.path === path);
-    root.innerHTML = target !== undefined ? target.view() : Err404()
-    window.history.pushState(null, null, path)
-}
-
-// History api
-window.onpopstate = () => {
+function render(){
     let target = routes.find(element => element.path === window.location.pathname);
     root.innerHTML = target !== undefined ? target.view() : Err404()
 }
 
+// Global navigation function
+window.navigateTo = path => {
+    window.history.pushState(null, null, path)
+    render()
+}
+
+// Navigating with history api
+window.onpopstate = () => render()
+
 // First render
-window.onload = () => navigateTo(window.location.pathname)
+window.onload = () => render()

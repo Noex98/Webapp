@@ -1,5 +1,4 @@
 export default function Redirect(path){
-    return(
-        window.navigateTo(path)
-    )
+    history.replaceState(null, null, path)
+    setTimeout(() => navigateTo(path), 0)
 }
