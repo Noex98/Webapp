@@ -1,4 +1,4 @@
-import Redirect from "./utils/Redirect"
+import Redirect from "./utils/Redirect.js"
 
 export let user = {
     loaded: false,
