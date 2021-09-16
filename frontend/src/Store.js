@@ -1,4 +1,4 @@
-import { __PROD_ENV as __ENV } from "./env.js"
+import __ENV from "./env.js"
 
 import Redirect from "./utils/Redirect.js"
 
