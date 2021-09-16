@@ -6,7 +6,7 @@ export default function StartWorkout(){
     let n = 13
 
     window.clickfunc = () => {
-        console.log(n)
+        alert(n)
     }
 
     return (/*html*/ `
