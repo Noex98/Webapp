@@ -1,3 +1,5 @@
+import { __PROD_ENV as __ENV } from "./env.js"
+
 import Redirect from "./utils/Redirect.js"
 
 export let user = {
