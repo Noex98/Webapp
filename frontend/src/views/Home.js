@@ -1,11 +1,10 @@
 import Header from '../components/Header.js'
 import Nav from '../components/Nav.js'
-import { user } from '../Store.js'
+import ProtectRoute from '../utils/ProtectRoute.js'
 
 export default function Home(){
 
-    let userData = user.data()
-    userData == undefined ? console.log(1) : console.log(2)
+    ProtectRoute()
 
     return (/*html*/ `
             ${Header()}

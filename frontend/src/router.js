@@ -8,28 +8,38 @@ import Stats from './views/Stats.js'
 import StartWorkout from './views/StartWorkout.js'
 import Plans from './views/Plans.js'
 
+// Utils
+import ProtectRoute from './utils/ProtectRoute.js'
+
 const routes = [
     {
         path: '/',
-        view: Home
+        view: Home,
+        protectedRoute: true
     }, {
         path: '/login',
-        view: Login
+        view: Login,
+        protectedRoute: false
     }, {
         path: '/new-user',
-        view: NewUser
+        view: NewUser,
+        protectedRoute: false
     }, {
         path: '/settings',
-        view: Settings
+        view: Settings,
+        protectedRoute: true
     }, {
         path: '/stats',
-        view: Stats
+        view: Stats,
+        protectedRoute: true
     }, {
         path: '/startWorkout',
-        view: StartWorkout
+        view: StartWorkout,
+        protectedRoute: true
     }, {
         path: '/plans',
-        view: Plans
+        view: Plans,
+        protectedRoute: true
     }
 ]
 
@@ -38,6 +48,9 @@ let root = document.getElementById('root')
 // Render view in the DOM
 function render(){
     let target = routes.find(element => element.path === window.location.pathname);
+    if (target.protectedRoute){
+        ProtectRoute()
+    }
     root.innerHTML = target !== undefined ? target.view() : Err404()
 }
 

@@ -10,6 +10,9 @@ export default function Login(){
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials: 'include',
+            mode: 'cors',
+            secure: true,
             body: JSON.stringify({
                 user: document.getElementById('user').value,
                 password: document.getElementById('password').value
@@ -28,14 +31,14 @@ export default function Login(){
 
     return (/*html*/ `
         ${Header()}
-            <h1>Login</h1>
-            <div>
-                <label for="user">Username / E-mail: </label>
-                <input type="text" name="user" id="user" />
-                <label for="password">Password: </label>
-                <input type="password" name="password" id="password" />
-                <button onclick="login()">Login</button>
-                <div id="errLog"></div>
-            </div>
+        <h1>Login</h1>
+        <div>
+            <label for="user">Username / E-mail: </label>
+            <input type="text" name="user" id="user" />
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" />
+            <button onclick="login()">Login</button>
+            <div id="errLog"></div>
+        </div>
     `)
 }
