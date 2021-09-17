@@ -10,9 +10,9 @@ export default function ProtectRoute(){
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if (data.auth !== true){
                 Redirect('/login')
+                return 123
             }
         })
 }   

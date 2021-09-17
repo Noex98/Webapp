@@ -1,5 +1,6 @@
 import Header from "../components/Header.js"
 import Redirect from "../utils/Redirect.js"
+import Link from "../utils/Link.js"
 import __ENV from "../env.js"
 
 export default function Login(){
@@ -20,7 +21,6 @@ export default function Login(){
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.login !== true){
                     document.getElementById('errLog').innerText = data.err
                 } else {
@@ -37,8 +37,13 @@ export default function Login(){
             <input type="text" name="user" id="user" />
             <label for="password">Password: </label>
             <input type="password" name="password" id="password" />
-            <button onclick="login()">Login</button>
+            <div>
+                <button onclick="login()">Login</button>
+            </div>
             <div id="errLog"></div>
         </div>
+        ${Link('/new-user', /*html*/`
+            <div>Signup here!</div>    
+        `)}
     `)
 }
